@@ -1,0 +1,45 @@
+# 2018-04-28
+alter table c_department add check_type_id int(11) not null COMMENT '科室分类';
+alter table c_department add show_index int(11) not null COMMENT '科室显示顺序';
+
+# 2018-05-07
+alter table c_org_hosp add status int(11) DEFAULT null COMMENT '可用状态：0启用，1禁用';
+alter table c_org_hosp add by_name varchar(20) DEFAULT null COMMENT '别名';
+
+# 2018-05-16
+ALTER TABLE c_hosp_room MODIFY COLUMN hosp_id VARCHAR(100);
+ALTER TABLE c_hosp_line_dept_room MODIFY COLUMN hosp_id VARCHAR(100);
+ALTER TABLE c_hosp_department MODIFY COLUMN hosp_id VARCHAR(100);
+ALTER TABLE c_hosp_checkline MODIFY COLUMN hosp_id VARCHAR(100);
+
+# 2018-05-18
+alter table c_checkline  modify column `name` varchar(50);
+alter table c_department  modify column `name` varchar(50);
+alter table c_hosp_checkline  modify column `name` varchar(50);
+alter table c_hosp_department  modify column `name` varchar(50);
+alter table c_hosp_line_dept_room  modify column `name` varchar(50);
+alter table c_hosp_room  modify column `name` varchar(50);
+alter table r_permission  modify column `name` varchar(50);
+alter table r_resource  modify column `name` varchar(50);
+alter table r_resource_category  modify column `name` varchar(50);
+alter table r_role  modify column `name` varchar(50);
+alter table r_user  modify column `name` varchar(50);
+alter table c_org_hosp  modify column `name` varchar(50);
+
+# 2018-06-22
+alter table c_hosp_line_dept_room add remark VARCHAR(300) DEFAULT null COMMENT '备注';
+alter table c_hosp_line_dept_room add gender int(11) DEFAULT null COMMENT '性别：0全部 1男 2女';
+alter table c_hosp_line_dept_room add idx int(11) DEFAULT null COMMENT '排序';
+alter table c_hosp_line_dept_room add dept_code_s varchar(20) DEFAULT null COMMENT '自动调阅其他科室结果(科室类型多选)';
+
+# 2018-06-27
+alter table c_hosp_room add remark VARCHAR(300) DEFAULT null COMMENT '备注';
+
+# 2018-07-06
+alter table c_hosp_checkline rename c_checkline_hosp;
+alter table c_checkline_hosp add group_type int(11) DEFAULT null COMMENT '分组ID';
+
+alter table c_checkline_hosp add remote_open int(11) DEFAULT null COMMENT '级别 ';
+alter table c_checkline_hosp add hosp_level int(11) DEFAULT null COMMENT '检线等级';
+
+alter table c_checkline_hosp modify id varchar(3);
