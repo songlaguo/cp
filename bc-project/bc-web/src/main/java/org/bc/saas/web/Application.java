@@ -19,9 +19,9 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@EnableFeignClients(basePackages = { "org.bc.service.integration" })
-@ComponentScan(basePackages = { "org.bc" })
-@MapperScan("org.bc.persistence")
+@EnableFeignClients(basePackages = { "org.bc.saas.service.integration" })
+@ComponentScan(basePackages = { "org.bc.saas" })
+@MapperScan("org.bc.saas.persistence")
 @EnableTransactionManagement
 public class Application {
 	/**

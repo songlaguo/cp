@@ -19,7 +19,7 @@ public class Swagger2Config {
 	@Bean
 	public Docket createRestApi() {
 		return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).useDefaultResponseMessages(false).select()
-				.apis(RequestHandlerSelectors.basePackage("org.bc.web")).paths(PathSelectors.any())
+				.apis(RequestHandlerSelectors.basePackage("org.bc.saas.web")).paths(PathSelectors.any())
 				.build();
 	}
 
