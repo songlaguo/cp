@@ -1,8 +1,8 @@
 package junit.service;
 
-import org.bc.common.entity.User;
-import org.bc.mq.persistence.OrgHospMapper;
-import org.bc.mq.persistence.UserMapper;
+import org.bc.saas.common.entity.User;
+import org.bc.saas.mq.persistence.OrgHospMapper;
+import org.bc.saas.mq.persistence.UserMapper;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
