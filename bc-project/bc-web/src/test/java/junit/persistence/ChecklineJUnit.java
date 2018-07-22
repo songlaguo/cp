@@ -8,6 +8,8 @@ import java.util.Map;
 
 import org.bc.saas.persistence.Pk10Mapper;
 import org.bc.saas.persistence.entity.Pk10;
+import org.bc.saas.service.Pk10Service;
+import org.bc.saas.util.SendTools;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,7 +25,8 @@ public class ChecklineJUnit extends BaseJUnit{
  
     @Autowired
     private Pk10Mapper pk10Mapper;
-   
+   @Autowired
+   Pk10Service pk10Service;
     @Test
     public void insert(){
     	List list=new ArrayList();
@@ -50,4 +53,94 @@ public class ChecklineJUnit extends BaseJUnit{
     	}
     }
      
+    @Test 
+    public void aaa(){
+    	List plist=new ArrayList();
+    	List<Pk10> aaa=pk10Mapper.findallid();
+       	int kk=6;
+       	int test1=0;
+       	String param="";
+    	for(int m=0;m<aaa.size()-20;m++){
+    			param=param+aaa.get(m).getId()+",";
+    		   test1=test1+1;
+    		   if(test1==kk){
+    			test1=0;
+    			System.out.println(param);
+    			plist.add(param.substring(0,param.length()-1));
+    			param="";
+    			
+    		}
+    	}
+    }
+    @Test
+    public void csqs(){
+    	
+    	
+    	List plist=new ArrayList();
+    	List<Pk10> aaa=pk10Mapper.findallid();
+       	int kk=6;
+       	int test1=0;
+       	String param="";
+    	for(int m=0;m<aaa.size()-20;m++){
+    			param=param+aaa.get(m).getId()+",";
+    		   test1=test1+1;
+    		   if(test1==kk){
+    			test1=0;
+    			System.out.println(param);
+    			plist.add(param.substring(0,param.length()-1));
+    			param="";
+    			
+    		}
+    	}
+    	
+    	  Map t = new HashMap();
+    	  for(int j=6;j<21;j++){
+    	  String pp="5";
+    	  int cs=j;
+    	  
+    	  
+    	  for(int i=0;i<plist.size();i++){    
+    	    
+    	     
+    	      
+    	      String ddddd=plist.get(i).toString();
+    	      String dddd=ddddd.substring(0,ddddd.indexOf(","));
+    	      List<Pk10> dsqbc111 = this.pk10Mapper.finddsqwc(dddd,plist.get(i).toString(),j);
+    	      Pk10 f= dsqbc111.get(0);
+    	      Pk10 ddd=new Pk10();
+    	      if(f.getNumber1().equals(pp))ddd.setNumber1(String.valueOf(cs).toString());else  ddd.setNumber1("");
+    	      if(f.getNumber2().equals(pp))ddd.setNumber2(String.valueOf(cs).toString());else  ddd.setNumber2("");
+    	      if(f.getNumber3().equals(pp))ddd.setNumber3(String.valueOf(cs).toString());else  ddd.setNumber3("");
+    	      if(f.getNumber4().equals(pp))ddd.setNumber4(String.valueOf(cs).toString());else  ddd.setNumber4("");
+    	      if(f.getNumber5().equals(pp))ddd.setNumber5(String.valueOf(cs).toString());else  ddd.setNumber5("");
+    	      if(f.getNumber6().equals(pp))ddd.setNumber6(String.valueOf(cs).toString());else  ddd.setNumber6("");
+    	      if(f.getNumber7().equals(pp))ddd.setNumber7(String.valueOf(cs).toString());else  ddd.setNumber7("");
+    	      if(f.getNumber8().equals(pp))ddd.setNumber8(String.valueOf(cs).toString());else  ddd.setNumber8("");
+    	      if(f.getNumber9().equals(pp))ddd.setNumber9(String.valueOf(cs).toString());else  ddd.setNumber9("");
+    	      if(f.getNumber10().equals(pp))ddd.setNumber10(String.valueOf(cs).toString());else  ddd.setNumber10("");
+    	     
+    	      ddd.setId(Integer.valueOf(dddd));
+    	      ddd.setQs(j);
+    	      if(j==6) pk10Mapper.insertpk10wc6(ddd);
+    	      if(j==7) pk10Mapper.insertpk10wc7(ddd);
+    	      if(j==8) pk10Mapper.insertpk10wc8(ddd);
+    	      if(j==9) pk10Mapper.insertpk10wc9(ddd);
+    	      if(j==10) pk10Mapper.insertpk10wc10(ddd);
+    	      if(j==11) pk10Mapper.insertpk10wc11(ddd);
+    	      if(j==12) pk10Mapper.insertpk10wc12(ddd);
+    	      if(j==13) pk10Mapper.insertpk10wc13(ddd);
+    	      if(j==14) pk10Mapper.insertpk10wc14(ddd);
+    	      if(j==15) pk10Mapper.insertpk10wc15(ddd);
+    	      if(j==16) pk10Mapper.insertpk10wc16(ddd);
+    	      if(j==17) pk10Mapper.insertpk10wc17(ddd);
+    	      if(j==18) pk10Mapper.insertpk10wc18(ddd);
+    	      if(j==19) pk10Mapper.insertpk10wc19(ddd);
+    	      if(j==20) pk10Mapper.insertpk10wc20(ddd);
+    	       
+    	     
+    	      
+    	    }
+    	  
+    	  }
+    }
 }

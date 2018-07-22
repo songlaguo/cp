@@ -163,7 +163,7 @@ public class Pk10Service
     mes14_5 = analysisPk10(maxid, mes14_5, 14, 5, t);
     mes = mes + mes14_5;
     System.out.println("==14期没有出现的===" + mes14_5);
-  
+  /*
     String mes13_5 = "";
     mes13_5 = analysisPk10(maxid, mes13_5, 13, 5, t);
     mes = mes + mes13_5;
@@ -178,7 +178,7 @@ public class Pk10Service
     mes11_5 = analysisPk10(maxid, mes11_5, 11, 5, t);
     mes = mes + mes11_5;
     System.out.println("==11期没有出现的===" + mes11_5);
-    /*  
+    
     String mes10_5 = "";
     mes10_5 = analysisPk10(maxid, mes10_5, 10, 5, t);
     mes = mes + mes10_5;
@@ -309,10 +309,5 @@ public class Pk10Service
 		      
 		return bt+mes;
 	}
-  public static void main(String[] args)
-    throws Exception
-  {
-    Pk10Service a = new Pk10Service(null);
-    SendTools.sendMsg("sasdfasdf", "dddd  \r ddds", "afasdff");
-  }
+
 }

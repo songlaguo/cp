@@ -21,8 +21,16 @@ public class Pk10
   private String number9;
   private String number10;
   private Date dateline;
-  
-  public Integer getId()
+  private Integer qs;
+  public Integer getQs() {
+	return qs;
+}
+
+public void setQs(Integer qs) {
+	this.qs = qs;
+}
+
+public Integer getId()
   {
     return this.id;
   }
