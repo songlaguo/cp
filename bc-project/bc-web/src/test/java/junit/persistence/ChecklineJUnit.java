@@ -150,4 +150,29 @@ public class ChecklineJUnit extends BaseJUnit{
     	  
     	  }
     }
+    
+    @Test
+    public void cslr(){
+    	
+		for (int i = 694391; i >= 694391 - 3; i--) {
+			Map instM = new HashMap();
+			for (int j = 1; j < 11; j++) {
+				List<Map> list = pk10Mapper.selectlr(j, i-5, i );
+				String col = "";
+				for (int k = 0; k < list.size(); k++) {
+					Map m = list.get(k);
+					col = col + m.get("number" + j) + ",";
+				}
+				instM.put("number" + j, col.substring(0, col.length() - 1));
+			}
+			Pk10 ddd=pk10Mapper.selectByPrimaryKeypk10lrh(i+1);
+			if(ddd==null){
+			instM.put("id", i+1);
+			pk10Mapper.pk10lrh(instM);
+			}
+			
+		}
+    	
+    	
+    }
 }

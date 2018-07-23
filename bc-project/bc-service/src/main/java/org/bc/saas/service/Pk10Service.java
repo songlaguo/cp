@@ -52,7 +52,7 @@ public class Pk10Service
     if ((data1.getTime() < now.getTime()) && (data2.getTime() > now.getTime()))
     {
       System.out.println("-----------------执行了:" + sdf2.format(now));
-    querypk10();
+      querypk10();
     }
     else
     {
@@ -163,17 +163,17 @@ public class Pk10Service
     mes14_5 = analysisPk10(maxid, mes14_5, 14, 5, t);
     mes = mes + mes14_5;
     System.out.println("==14期没有出现的===" + mes14_5);
-  /*
+ 
     String mes13_5 = "";
     mes13_5 = analysisPk10(maxid, mes13_5, 13, 5, t);
     mes = mes + mes13_5;
     System.out.println("==13期没有出现的===" + mes13_5);
-    
+
     String mes12_5 = "";
     mes12_5 = analysisPk10(maxid, mes12_5, 12, 5, t);
     mes = mes + mes12_5;
     System.out.println("==12期没有出现的===" + mes12_5);
-    
+    /* 
     String mes11_5 = "";
     mes11_5 = analysisPk10(maxid, mes11_5, 11, 5, t);
     mes = mes + mes11_5;
@@ -234,6 +234,7 @@ public class Pk10Service
     */
     
    // mes=mes+findle(maxid,6);
+    addtj(maxid);
     if (!mes.equals(""))
     {
       System.out.println("������");
@@ -308,6 +309,40 @@ public class Pk10Service
 		 String bt="[期, 一, 二, 三, 四, 五, 六, 七, 八, 九, 十]";
 		      
 		return bt+mes;
+	}
+	
+	public void addtj(int i){
+		
+
+		Map instM = new HashMap();
+		for (int j = 1; j < 11; j++) {
+			List<Map> list = pk10Mapper.selectlr(j, i-5, i );
+			String col = "";
+			for (int k = 0; k < list.size(); k++) {
+				Map m = list.get(k);
+				col = col + m.get("number" + j) + ",";
+			}
+			instM.put("number" + j, col.substring(0, col.length() - 1));
+		}
+		Pk10 ddd=pk10Mapper.selectByPrimaryKeypk10lrh(i+1);
+		if(ddd==null){
+		instM.put("id", i+1);
+		pk10Mapper.pk10lrh(instM);
+		}
+		
+	
+		
+		
+		
+	}
+	
+	
+	public List<Map> gettj1(){
+		
+		return pk10Mapper.selecttj1();
+		
+		
+		
 	}
 
 }
