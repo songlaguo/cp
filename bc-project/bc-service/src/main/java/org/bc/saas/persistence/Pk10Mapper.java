@@ -127,7 +127,7 @@ public  interface Pk10Mapper
 
   
   
-    @Select({"SELECT number${num} ,COUNT(number${num}) AS cu FROM pk10 WHERE id BETWEEN ${start} AND  ${end} GROUP BY number${num}  ORDER BY cu DESC LIMIT 1,5  "})
+    @Select({"SELECT number${num} ,COUNT(number${num}) AS cu FROM pk10 WHERE id BETWEEN ${start} AND  ${end} GROUP BY number${num}  ORDER BY cu DESC LIMIT 0,5  "})
     public  List<Map> selectlr(@Param("num") int num,@Param("start") int start,@Param("end") int end);
   
     
