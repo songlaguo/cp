@@ -154,7 +154,7 @@ public class ChecklineJUnit extends BaseJUnit{
     @Test
     public void cslr(){
     	
-		for (int i = 694407; i >= 694407 - 10; i--) {
+		for (int i = 694409; i >= 694409 - 10; i--) {
 			Map instM = new HashMap();
 			for (int j = 1; j < 11; j++) {
 				List<Map> list = pk10Mapper.selectlr(j, i-5, i );
